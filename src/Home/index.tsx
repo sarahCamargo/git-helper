@@ -1,10 +1,10 @@
-import { Box, Card, CardContent, CardHeader } from "@mui/material";
-import Form from "../../components/Form/Form";
-import { useHome } from "../../hooks/useHome";
-import { ResultList } from "../../components/ResultList";
+import { Box, Card, CardContent, CardHeader, Grid } from "@mui/material";
+import Form from "./components/Form";
+import { useHome } from "./useHome";
+import { ResultList } from "./components/ResultList";
 
 export default function Home() {
-  const { isSubmitted, onSubmitForm } = useHome();
+  const { isSubmitted, onSubmitForm, data } = useHome();
 
   return (
     <Box
@@ -12,16 +12,27 @@ export default function Home() {
       justifyContent="center"
       alignItems="center"
       minHeight="100vh"
+      sx={{
+        overflowX: "auto",
+        padding: 2,
+      }}
     >
-      <Card sx={{ minWidth: 300, m: 2 }}>
-        <CardHeader />
-        <CardContent>
+      <Grid
+        container
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Grid item>
           <Form onSubmitForm={onSubmitForm} />
-          {isSubmitted && (
-            <ResultList commitMessage={""} featureBranch={""} taskBranch={""} />
-          )}
-        </CardContent>
-      </Card>
+        </Grid>
+        {isSubmitted && (
+          <Grid item>
+            <ResultList data={data} />
+          </Grid>
+        )}
+      </Grid>
     </Box>
   );
 }

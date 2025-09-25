@@ -1,4 +1,4 @@
-export type FormInput = {
+export type FormValues = {
   taskType: TaskType | null;
   featCode: number | null;
   usCode: number | null;

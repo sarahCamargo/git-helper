@@ -1,37 +1,66 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, Divider, Stack } from "@mui/material";
+import { CommitInfoProps } from "../../types";
 
-type CommitInfoProps = {
-  commitMessage: string;
-  featureBranch: string;
-  taskBranch: string;
+type ResultListProps = {
+  data: CommitInfoProps;
 };
 
-export function ResultList({
-  commitMessage,
-  featureBranch,
-  taskBranch,
-}: CommitInfoProps) {
+export function ResultList({ data }: ResultListProps) {
   return (
-    <Card sx={{ maxWidth: 500, m: 2 }}>
+    <Card
+      sx={{
+        width: 800,
+        minWidth: 300,
+      }}
+    >
       <CardContent>
-        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-          Mensagem Commit
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          {commitMessage}
-        </Typography>
+        <Stack spacing={2}>
+          <div>
+            <Typography
+              variant="subtitle2"
+              fontWeight="bold"
+              color="text.secondary"
+              gutterBottom
+            >
+              Mensagem de Commit
+            </Typography>
+            <Typography variant="body1" color="text.primary">
+              {data.commitMessage}
+            </Typography>
+          </div>
 
-        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-          Feature Branch
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          {featureBranch}
-        </Typography>
+          <Divider />
 
-        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-          Task Branch
-        </Typography>
-        <Typography variant="body1">{taskBranch}</Typography>
+          <div>
+            <Typography
+              variant="subtitle2"
+              fontWeight="bold"
+              color="text.secondary"
+              gutterBottom
+            >
+              Feature Branch
+            </Typography>
+            <Typography variant="body1" color="text.primary">
+              {data.featureBranch}
+            </Typography>
+          </div>
+
+          <Divider />
+
+          <div>
+            <Typography
+              variant="subtitle2"
+              fontWeight="bold"
+              color="text.secondary"
+              gutterBottom
+            >
+              Task Branch
+            </Typography>
+            <Typography variant="body1" color="text.primary">
+              {data.taskBranch}
+            </Typography>
+          </div>
+        </Stack>
       </CardContent>
     </Card>
   );
