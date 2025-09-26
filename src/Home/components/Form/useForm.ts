@@ -26,12 +26,14 @@ const validationSchema = Yup.object({
 
 export type FormProps = {
   onSubmitForm: (values: FormValues) => void;
+  onResetForm: () => void;
 };
 
-export function useForm({ onSubmitForm }: FormProps) {
+export function useForm({ onSubmitForm, onResetForm }: FormProps) {
   const formik = useFormik<FormValues>({
     initialValues: INITIAL_VALUES,
     onSubmit: onSubmitForm,
+    onReset: onResetForm,
     validationSchema,
   });
 

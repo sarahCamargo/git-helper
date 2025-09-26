@@ -14,10 +14,11 @@ import {
 } from "@mui/material";
 import { TaskType } from "./form.types";
 
-export default function Form({ onSubmitForm }: FormProps) {
+export default function Form({ onSubmitForm, onResetForm }: FormProps) {
   const { handleSubmit, getFieldProps, handleReset, errors, touched, values } =
     useForm({
       onSubmitForm,
+      onResetForm,
     });
 
   return (

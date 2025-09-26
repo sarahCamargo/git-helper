@@ -16,6 +16,11 @@ export function useHome() {
     setIsSubmitted(true);
   };
 
+  const onResetForm = () => {
+    setIsSubmitted(false);
+    setData({} as CommitInfoProps);
+  };
+
   function buildCommitMessage(values: FormValues): string {
     return `PR ${resolveTaskType(values.taskType)} ${values.usCode} - ${
       values.usDescription
@@ -54,5 +59,5 @@ export function useHome() {
     return "Hotfix";
   }
 
-  return { isSubmitted, onSubmitForm, data };
+  return { isSubmitted, onSubmitForm, data, onResetForm };
 }

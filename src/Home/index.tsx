@@ -4,7 +4,7 @@ import { useHome } from "./useHome";
 import { ResultList } from "./components/ResultList";
 
 export default function Home() {
-  const { isSubmitted, onSubmitForm, data } = useHome();
+  const { isSubmitted, onSubmitForm, data, onResetForm } = useHome();
 
   return (
     <Box
@@ -25,10 +25,10 @@ export default function Home() {
         justifyContent="center"
       >
         <Grid item>
-          <Form onSubmitForm={onSubmitForm} />
+          <Form onSubmitForm={onSubmitForm} onResetForm={onResetForm} />
         </Grid>
         {isSubmitted && (
-          <Grid item>
+          <Grid item xs={12}>
             <ResultList data={data} />
           </Grid>
         )}
