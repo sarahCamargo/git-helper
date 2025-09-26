@@ -1,12 +1,12 @@
 export type FormValues = {
-  taskType: TaskType | null;
-  featCode: number | null;
-  usCode: number | null;
+  taskType: TaskType | "";
+  featCode: number | "";
+  usCode: number | "";
   usDescription: string;
 };
 
 export enum TaskType {
-  FEATURE_ISSUE,
-  HOTFIX_BUG,
-  HOTFIX_FEATURE,
+  FEATURE_ISSUE = "FEATURE_ISSUE",
+  HOTFIX_BUG = "HOTFIX_BUG",
+  HOTFIX_FEATURE = "HOTFIX_FEATURE",
 }

@@ -15,9 +15,10 @@ import {
 import { TaskType } from "./form.types";
 
 export default function Form({ onSubmitForm }: FormProps) {
-  const { handleSubmit, getFieldProps, errors, touched, values } = useForm({
-    onSubmitForm,
-  });
+  const { handleSubmit, getFieldProps, handleReset, errors, touched, values } =
+    useForm({
+      onSubmitForm,
+    });
 
   return (
     <Card sx={{ width: 800, minWidth: 300 }}>
@@ -44,8 +45,9 @@ export default function Form({ onSubmitForm }: FormProps) {
                 labelId="form-select-task-type-label"
                 id="form-select-task-type"
                 {...getFieldProps("taskType")}
-                required
+                displayEmpty
               >
+                <MenuItem value=""></MenuItem>
                 <MenuItem value={TaskType.FEATURE_ISSUE}>
                   Feature/Issue
                 </MenuItem>
@@ -96,7 +98,14 @@ export default function Form({ onSubmitForm }: FormProps) {
           </Grid>
 
           <Grid item xs={12} container justifyContent="flex-end">
-            <Button type="submit" variant="contained">
+            <Button
+              type="reset"
+              variant="contained"
+              onClick={() => handleReset()}
+            >
+              Limpar
+            </Button>
+            <Button type="submit" variant="contained" sx={{ ml: 2 }}>
               Enviar
             </Button>
           </Grid>

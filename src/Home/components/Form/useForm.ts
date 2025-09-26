@@ -3,9 +3,9 @@ import { FormValues, TaskType } from "./form.types";
 import * as Yup from "yup";
 
 const INITIAL_VALUES: FormValues = {
-  taskType: null,
-  featCode: null,
-  usCode: null,
+  taskType: "",
+  featCode: "",
+  usCode: "",
   usDescription: "",
 };
 
@@ -41,5 +41,6 @@ export function useForm({ onSubmitForm }: FormProps) {
     errors: formik.errors,
     touched: formik.touched,
     values: formik.values,
+    handleReset: formik.resetForm,
   };
 }
