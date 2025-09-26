@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardHeader, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import Form from "./components/Form";
 import { useHome } from "./useHome";
 import { ResultList } from "./components/ResultList";

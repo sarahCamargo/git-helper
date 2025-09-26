@@ -53,7 +53,7 @@ export function useHome() {
   }
 
   function resolveTaskType(taskType: TaskType | "") {
-    if (taskType == TaskType.FEATURE_ISSUE) {
+    if (taskType === TaskType.FEATURE_ISSUE) {
       return "Feature";
     }
     return "Hotfix";
